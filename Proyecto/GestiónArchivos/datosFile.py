@@ -30,12 +30,20 @@ class DatosFile():
                 file.write("\n")
                 count = 0
                 for line in self.consultas:
-                    cadena = str(count+1) + "º" + " " + line + "\n"
-                    file.write(cadena)
-                    cadena = self.respuestas_tbl[count]
-                    file.write(cadena)
-                    count = count + 1
-                    file.write("\n")
+                    try:
+                        cadena = str(count+1) + "º" + " " + line + "\n"
+                        file.write(cadena)
+                        cadena = self.respuestas_tbl[count]
+                        file.write(cadena)
+                        count = count + 1
+                        file.write("\n")
+                    except Exception as e:
+                        file.write("\n")
+                        file.write("\n")
+                        file.write(str(e))
+                        file.write("\n")
+                        file.write("\n")
+                        continue
             QMessageBox.information(None,"Exito","Archivo guardado correctamente")
         except Exception as e:
             QMessageBox.critical(None,"Error",f"El archivo no se ha podido guardar\nError: {str(e)}")
@@ -48,11 +56,19 @@ class DatosFile():
                 file.write("\n")
                 count = 0
                 for line in self.comandos:
-                    cadena = str(count+1) + "º" + " " + line + "\n"
-                    file.write(cadena)
-                    cadena = self.respuestas_terminal[count]
-                    file.write(cadena)
-                    file.write("\n")
+                    try:
+                        cadena = str(count+1) + "º" + " " + line + "\n"
+                        file.write(cadena)
+                        cadena = self.respuestas_terminal[count]
+                        file.write(cadena)
+                        file.write("\n")
+                    except Exception as e:
+                        file.write("\n")
+                        file.write("\n")
+                        file.write(str(e))
+                        file.write("\n")
+                        file.write("\n")
+                        continue
             QMessageBox.information(None,"Exito","Archivo guardado correctamente")
         except Exception as e:
             QMessageBox.critical(None,"Error",f"El archivo no se ha podido guardar\nError: {str(e)}")
@@ -64,20 +80,40 @@ class DatosFile():
                 file.write("Listado de todas las consultas y comandos realizadas:\n")
                 file.write("\n")
                 count = 0
+                print(len(self.consultas))
+                print(len(self.respuestas_tbl))
+                print(len(self.comandos))
+                print(len(self.respuestas_terminal))
                 for line in self.consultas:
-                    cadena = str(count+1) + "º" + " " + line + "\n"
-                    file.write(cadena)
-                    cadena = self.respuestas_tbl[count]
-                    file.write(cadena)
-                    count = count + 1
-                    file.write("\n")
+                    try:
+                        cadena = str(count+1) + "º" + " " + line + "\n"
+                        file.write(cadena)
+                        cadena = self.respuestas_tbl[count]
+                        file.write(cadena)
+                        count = count + 1
+                        file.write("\n")
+                    except Exception as e:
+                        file.write("\n")
+                        file.write("\n")
+                        file.write(str(e))
+                        file.write("\n")
+                        file.write("\n")
+                        continue
                 count = 0
                 for line in self.comandos:
-                    cadena = str(count+1) + "º" + " " + line + "\n"
-                    file.write(cadena)
-                    cadena = self.respuestas_terminal[count]
-                    file.write(cadena)
-                    file.write("\n")
+                    try:
+                        cadena = str(count+1) + "º" + " " + line + "\n"
+                        file.write(cadena)
+                        cadena = self.respuestas_terminal[count]
+                        file.write(cadena)
+                        file.write("\n")
+                    except Exception as e:
+                        file.write("\n")
+                        file.write("\n")
+                        file.write(str(e))
+                        file.write("\n")
+                        file.write("\n")
+                        continue
             QMessageBox.information(None,"Exito","Archivo guardado correctamente")
         except Exception as e:
             QMessageBox.critical(None,"Error",f"El archivo no se ha podido guardar\nError: {str(e)}")
